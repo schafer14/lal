@@ -1,0 +1,110 @@
+{
+  "Unit Tests": {
+    "coverage": {
+      "C:/Users/Banner/Documents/CS/RubyOnRails/lal/test/unit/helpers/comments_helper_test.rb": [
+        1,
+        null,
+        1,
+        null
+      ],
+      "C:/Users/Banner/Documents/CS/RubyOnRails/lal/test/unit/helpers/home_helper_test.rb": [
+        1,
+        null,
+        1,
+        null
+      ],
+      "C:/Users/Banner/Documents/CS/RubyOnRails/lal/test/unit/helpers/posts_helper_test.rb": [
+        1,
+        null,
+        1,
+        null
+      ],
+      "C:/Users/Banner/Documents/CS/RubyOnRails/lal/test/unit/post_test.rb": [
+        1,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null
+      ],
+      "C:/Users/Banner/Documents/CS/RubyOnRails/lal/test/unit/tag_test.rb": [
+        1,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null
+      ]
+    },
+    "timestamp": 1352778360
+  },
+  "Functional Tests": {
+    "coverage": {
+      "C:/Users/Banner/Documents/CS/RubyOnRails/lal/test/functional/home_controller_test.rb": [
+        1,
+        null,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        null
+      ],
+      "C:/Users/Banner/Documents/CS/RubyOnRails/lal/test/functional/posts_controller_test.rb": [
+        1,
+        null,
+        1,
+        1,
+        7,
+        null,
+        null,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        1,
+        null,
+        null,
+        1,
+        null,
+        null,
+        1,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        1,
+        null,
+        null,
+        1,
+        null,
+        null
+      ]
+    },
+    "timestamp": 1352778375
+  }
+}
