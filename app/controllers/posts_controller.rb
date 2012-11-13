@@ -42,7 +42,12 @@ class PostsController < ApplicationController
 
   def destroy
     @post = Post.find(params[:id])
-    @post.destroy
+    @post.destroy(params[:id])
+
+    respond_to do |format|
+      format.html {redirect_to posts_url}
+      format.json{head :no_content}
+    end
 
     redirect_to :action => :index
   end

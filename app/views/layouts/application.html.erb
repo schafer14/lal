@@ -2,13 +2,13 @@
 <html>
 <head>
   <title>LikaLil</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
+  <%= stylesheet_link_tag    "degault", :media => "all" %>
+  <%= javascript_include_tag "default" %>
   <%= csrf_meta_tags %>
   <%= auto_discovery_link_tag(:rss, posts_path(:rss)) %>
 </head>
 <body style="background: #ffff33;
-			 color: #990066;">
+			 color: #990066;" >
 
 <%= yield %>
 
