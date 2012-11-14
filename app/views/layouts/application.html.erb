@@ -1,25 +1,61 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>LikaLil</title>
-  <%= stylesheet_link_tag    "degault", :media => "all" %>
-  <%= javascript_include_tag "default" %>
-  <%= csrf_meta_tags %>
-  <%= auto_discovery_link_tag(:rss, posts_path(:rss)) %>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title><%= content_for?(:title) ? yield(:title) : "SimpleBlog" %></title>
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<%= stylesheet_link_tag    "application", :media => "all" %>
+	<%= javascript_include_tag "application" %>
+	<%= csrf_meta_tags %>
+	<%= yield(:head) %>
 </head>
-<body style="background: #ffff33;
-			 color: #990066;" >
-	<div id="user_header">
-	  	<% if current_user %>
-		  Logged in as <%= current_user.name %>.
-		  <%= link_to "Log Out", logout_path %>
-	  	<% else %>
-		    <%= link_to "Sign Up", signup_path %> or
-		    <%= link_to "Log In", login_path %>
-	   	<% end %>
-    	
-	</div>
-<%= yield %>
+<body>
 
-</body>
-</html>
+	<header class="navbar navbar-fixed-top">
+		<nav class="navbar-inner">
+			<div class="container">
+				<a class="brand" href="/">SimpleBlog</a>
+				<ul class="nav">
+					<li class="active"><a href="/">Home</a></li>
+					<li><a href="/signup">Register</a></li>
+					<li><a href="/posts">Blogs</a></li>
+					<li></li>
+					</ul>
+				</div>
+			</nav>
+		</header>
+
+
+
+		<div id="main" role="main">
+			<div class="container">
+
+				<div class="row">
+					<div class="span12">
+						<%= yield %>
+					</div>
+				</div>
+
+				<footer>
+					<div id="user_header">
+						<% if current_user %>
+						Logged in as <%= current_user.name %>.
+						<%= link_to "Log Out", logout_path %>
+						<% else %>
+						<%= link_to "Sign Up", signup_path %> or
+						<%= link_to "Log In", login_path %>
+						<% end %>
+
+					</div><hr>
+					<p>Banner/Longchang/Alex</p>
+					<br />
+				</footer>
+			</div> <!--! end of .container -->
+		</div> <!--! end of #main -->
+
+
+
+	</body>
+	</html>
