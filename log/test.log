@@ -1,0 +1,170 @@
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (1.0ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "comments" ("commenter", "body", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2012-11-14 01:43:04', '2012-11-14 01:43:04', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "comments" ("commenter", "body", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2012-11-14 01:43:04', '2012-11-14 01:43:04', 298486374)
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM "posts"[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "posts" ("name", "title", "content", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyText', '2012-11-14 01:43:04', '2012-11-14 01:43:04', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "posts" ("name", "title", "content", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyText', '2012-11-14 01:43:04', '2012-11-14 01:43:04', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM "tags"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "tags" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2012-11-14 01:43:04', '2012-11-14 01:43:04', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "tags" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2012-11-14 01:43:04', '2012-11-14 01:43:04', 298486374)
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "users" ("email", "password_digest", "name", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyString', '2012-11-14 01:43:04', '2012-11-14 01:43:04', 980190962)
+  [1m[36mFixture Insert (1.0ms)[0m  [1mINSERT INTO "users" ("email", "password_digest", "name", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyString', '2012-11-14 01:43:04', '2012-11-14 01:43:04', 298486374)[0m
+  [1m[35m (6.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (28.0ms)
+Completed 200 OK in 133ms (Views: 133.0ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mPost Load (0.0ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "posts" [0m
+Processing by PostsController#create as HTML
+  Parameters: {"post"=>{"content"=>"MyText", "name"=>"MyString", "title"=>"MyString"}}
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (9.0ms)[0m  [1mINSERT INTO "posts" ("content", "created_at", "name", "title", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["content", "MyText"], ["created_at", Wed, 14 Nov 2012 01:43:05 UTC +00:00], ["name", "MyString"], ["title", "MyString"], ["updated_at", Wed, 14 Nov 2012 01:43:05 UTC +00:00]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/posts/980190963
+Completed 302 Found in 12ms (ActiveRecord: 9.0ms)
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "posts" [0m
+  [1m[35m (1.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mPost Load (0.0ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "posts" [0m
+Processing by PostsController#destroy as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mPost Load (0.0ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", "980190962"]]
+Completed 500 Internal Server Error in 1ms
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mPost Load (0.0ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"980190962"}
+Redirected to http://test.host/login
+Filter chain halted as :authorize rendered or redirected
+Completed 302 Found in 0ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (1.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mPost Load (0.0ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by PostsController#index as HTML
+Redirected to http://test.host/login
+Filter chain halted as :authorize rendered or redirected
+Completed 302 Found in 0ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mPost Load (0.0ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by PostsController#new as HTML
+Redirected to http://test.host/login
+Filter chain halted as :authorize rendered or redirected
+Completed 302 Found in 0ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mPost Load (0.0ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"980190962"}
+Redirected to http://test.host/login
+Filter chain halted as :authorize rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mPost Load (0.0ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by PostsController#update as HTML
+  Parameters: {"post"=>{"content"=>"MyText", "name"=>"MyString", "title"=>"MyString"}, "id"=>"980190962"}
+  [1m[35mPost Load (0.0ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", "980190962"]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/posts/980190962
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+Processing by SessionsController#new as HTML
+Completed 200 OK in 6ms (Views: 6.0ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "comments" ("commenter", "body", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2012-11-14 02:13:39', '2012-11-14 02:13:39', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "comments" ("commenter", "body", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2012-11-14 02:13:39', '2012-11-14 02:13:39', 298486374)
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM "posts"[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "posts" ("name", "title", "content", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyText', '2012-11-14 02:13:39', '2012-11-14 02:13:39', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "posts" ("name", "title", "content", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyText', '2012-11-14 02:13:39', '2012-11-14 02:13:39', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM "tags"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "tags" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2012-11-14 02:13:39', '2012-11-14 02:13:39', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "tags" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2012-11-14 02:13:39', '2012-11-14 02:13:39', 298486374)
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "users" ("email", "password_digest", "name", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyString', '2012-11-14 02:13:39', '2012-11-14 02:13:39', 980190962)
+  [1m[36mFixture Insert (1.0ms)[0m  [1mINSERT INTO "users" ("email", "password_digest", "name", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyString', '2012-11-14 02:13:39', '2012-11-14 02:13:39', 298486374)[0m
+  [1m[35m (6.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (21.0ms)
+Completed 200 OK in 101ms (Views: 101.0ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mPost Load (0.0ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "posts" [0m
+Processing by PostsController#create as HTML
+  Parameters: {"post"=>{"content"=>"MyText", "name"=>"MyString", "title"=>"MyString"}}
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (7.0ms)[0m  [1mINSERT INTO "posts" ("content", "created_at", "name", "title", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["content", "MyText"], ["created_at", Wed, 14 Nov 2012 02:13:39 UTC +00:00], ["name", "MyString"], ["title", "MyString"], ["updated_at", Wed, 14 Nov 2012 02:13:39 UTC +00:00]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/posts/980190963
+Completed 302 Found in 10ms (ActiveRecord: 7.0ms)
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "posts" [0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mPost Load (0.0ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "posts" [0m
+Processing by PostsController#destroy as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mPost Load (0.0ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", "980190962"]]
+Completed 500 Internal Server Error in 1ms
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mPost Load (0.0ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"980190962"}
+Redirected to http://test.host/login
+Filter chain halted as :authorize rendered or redirected
+Completed 302 Found in 0ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mPost Load (1.0ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by PostsController#index as HTML
+Redirected to http://test.host/login
+Filter chain halted as :authorize rendered or redirected
+Completed 302 Found in 0ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mPost Load (0.0ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by PostsController#new as HTML
+Redirected to http://test.host/login
+Filter chain halted as :authorize rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mPost Load (0.0ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"980190962"}
+Redirected to http://test.host/login
+Filter chain halted as :authorize rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mPost Load (0.0ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by PostsController#update as HTML
+  Parameters: {"post"=>{"content"=>"MyText", "name"=>"MyString", "title"=>"MyString"}, "id"=>"980190962"}
+  [1m[35mPost Load (0.0ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", "980190962"]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/posts/980190962
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+Processing by SessionsController#new as HTML
+Completed 200 OK in 6ms (Views: 5.0ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m

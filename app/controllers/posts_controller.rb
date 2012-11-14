@@ -42,13 +42,11 @@ before_filter :authorize, only: [:edit, :index, :new, :show]
 
   def destroy
     @post = Post.find(params[:id])
-    @post.destroy(params[:id])
+    @post.destroy
 
     respond_to do |format|
       format.html {redirect_to posts_url}
-      format.json{head :no_content}
+      format.json {head :no_content}
     end
-
-    redirect_to :action => :index
   end
 end
