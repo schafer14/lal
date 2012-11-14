@@ -39,7 +39,3 @@ gem 'jquery-rails'
 
 gem 'simplecov'
 gem 'bootstrap-sass'
-gem 'execjs'
-# gem 'johnson'
-# gem 'libv8', '3.3.10.4'
-# gem 'therubyracer''>= 0.11.0beta1', :require => 'v8'

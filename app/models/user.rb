@@ -1,30 +1,10 @@
-require 'bcrypt'
 class User < ActiveRecord::Base
-	include BCrypt
-	attr_accessible :name, :password
-
-	def password
-		@password ||= Password.new(password)
-	end
-
-	def password=(new_password)
-		@password = Password.create(new_password)
-		self.password = @password
-	end
-
-	def create
-		@user = User.new(params[:user])
-		@user.password = params[:password]
-		@user.save!
-	end
-
-	def login
-		@user = User.find_by_email(params[:email])
-		if @user.password == params[:password]
-			give_token
-		else
-			redirect_to home_url
-		end
-	end
+  has_secure_password
+  
+  attr_accessible :email, :password, :password_confirmation, :name
+  
+  validates_uniqueness_of :email
+  validates_uniqueness_of :name
+  
+  validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, :on => :create
 end
-

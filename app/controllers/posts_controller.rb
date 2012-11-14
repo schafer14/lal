@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-
+before_filter :authorize, only: [:edit, :index, :new, :show]
   def index
     @posts = Post.all
     respond_to do |format|
